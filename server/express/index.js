@@ -1,4 +1,3 @@
-/* eslint-disable import/no-import-module-exports */
 import express from 'express';
 import http from 'http';
 import { routes } from '../dropseq/index.js';
@@ -24,8 +23,8 @@ export class Server {
     this.appConfig();
     this.includeRoutes();
 
-    const port = process.env.PORT || 3000;
-    const host = process.env.HOST || 'localhost';
+    const port = process.env.PORT;
+    const host = process.env.HOST;
 
     this.http.listen(port, host, () => {
       console.log(`Server listening on port ${port}`);
