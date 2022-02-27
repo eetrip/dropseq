@@ -5,6 +5,7 @@ export class Routes {
 
   constructor({ controller }) {
     this.router = express.Router();
+    this.router.get('/check', controller.healthCheck);
     this.router.post('/', controller.list);
     this.router.post('/dropDown', controller.dropDown);
     this.router.post('/checkBox', controller.checkBox);

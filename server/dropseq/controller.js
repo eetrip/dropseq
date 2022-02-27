@@ -3,6 +3,9 @@ export class Controller {
     this.service = service;
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  healthCheck = async (req, res) => (res.send({ message: 'OK' }));
+
   list = async (req, res, next) => {
     try {
       console.log('calling', req.originalUrl);
