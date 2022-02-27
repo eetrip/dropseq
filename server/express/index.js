@@ -27,7 +27,7 @@ export class Server {
     const host = process.env.HOST || 'localhost';
 
     this.http.listen(port, host, () => {
-      console.log(`Server listening on port ${port}`);
+      console.log(`Server listening on port ${host}:${port}`);
     });
   }
 }
