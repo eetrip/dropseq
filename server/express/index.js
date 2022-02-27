@@ -24,7 +24,7 @@ export class Server {
     this.includeRoutes();
 
     const port = process.env.PORT || 3000;
-    const host = process.env.HOST || 'localhost';
+    const host = process.env.HOST;
 
     this.http.listen(port, host, () => {
       console.log(`Server listening on port ${host}:${port}`);
