@@ -2,8 +2,8 @@ import MongoDbDriver from 'mongodb';
 import { DB } from '../index.js';
 import { Scrna } from './scrna.js';
 
-const uri = process.env.MONGODB_URL;
-const dataBase = process.env.MONGODB_DB;
+const uri = process.env.MONGODB_URL || 'mongodb+srv://vaibhav:9999888777@cluster0.3u5rr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dataBase = process.env.MONGODB_DB || 'dropseq';
 const { MongoClient } = MongoDbDriver;
 
 const mongoDb = new MongoClient(uri, {
