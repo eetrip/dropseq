@@ -38,11 +38,9 @@ export class Matrix extends BaseMatrix {
 
   async series(gene) {
     if (gene.length) {
-      return this.Collection.find({ name: { $in: gene } })
-        .limit(10)
-        .toArray();
+      return this.Collection.find({ name: { $in: gene } }).toArray();
     }
-    return this.Collection.find().limit(10).toArray();
+    return this.Collection.find().toArray();
   }
 
   findOneById(id) {
