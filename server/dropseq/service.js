@@ -22,6 +22,10 @@ export class Service {
     // db calls should not be in service
     return this.db.Scrna.listSequence({ gene, cell });
   }
+
+  async series(gene) {
+    return this.db.Matrix.series(gene);
+  }
 }
 
 export default Service;

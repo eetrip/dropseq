@@ -10,6 +10,7 @@ export class Routes {
     this.router.post('/dropDown', controller.dropDown);
     this.router.post('/checkBox', controller.checkBox);
     this.router.post('/listSequence', controller.listSequence);
+    this.router.post('/series', controller.series);
   }
 }
 

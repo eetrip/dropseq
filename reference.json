@@ -1,0 +1,33 @@
+{
+    "name": "geneName",
+    "series": [
+        {
+            "name": "cell.type1",
+            "x": "geneName",
+            "y": "cell.type1",
+            "r": "percentage.expression",
+            "c": "normalised.expression"
+        },
+        {
+            "name": "cell.type2",
+            "x": "geneName",
+            "y": "cell.type2",
+            "r": "percentage.expression",
+            "c": "normalised.expression"
+        },
+        {
+            "name": "cell.type3",
+            "x": "geneName",
+            "y": "cell.type3",
+            "r": "percentage.expression",
+            "c": "normalised.expression"
+        },
+        {
+            "name": "cell.type4",
+            "x": "geneName",
+            "y": "cell.type4",
+            "r": "percentage.expression",
+            "c": "normalised.expression"
+        }
+    ]
+}

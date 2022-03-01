@@ -56,6 +56,20 @@ export class Controller {
       return next(err);
     }
   };
+
+  series = async (req, res, next) => {
+    try {
+      console.log('calling', req.originalUrl);
+      const {
+        body: { gene = [] } = {},
+      } = req;
+      const resp = await this.service.series(gene);
+      return res.send(resp);
+    } catch (err) {
+      console.error(err);
+      return next(err);
+    }
+  };
 }
 
 export default Controller;
