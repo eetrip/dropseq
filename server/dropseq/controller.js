@@ -61,9 +61,9 @@ export class Controller {
     try {
       console.log('calling', req.originalUrl);
       const {
-        body: { gene = [] } = {},
+        body: { gene = [], cells = [] } = {},
       } = req;
-      const resp = await this.service.series(gene);
+      const resp = await this.service.series(gene, cells);
       return res.send(resp);
     } catch (err) {
       console.error(err);

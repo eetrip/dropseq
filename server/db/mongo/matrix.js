@@ -1,12 +1,12 @@
-import mongodb from 'mongodb';
-import { Matrix as BaseMatrix } from '../matrix.js';
+import mongodb from "mongodb";
+import { Matrix as BaseMatrix } from "../matrix.js";
 
 const { ObjectId } = mongodb;
 
 export class Matrix extends BaseMatrix {
   constructor({ db }) {
     super();
-    this.name = 'matrix';
+    this.name = "matrix";
     this.db = db;
   }
 
@@ -27,7 +27,7 @@ export class Matrix extends BaseMatrix {
         $match: {
           gene: {
             $regex: `${keyword}`,
-            $options: 'i',
+            $options: "i",
           },
         },
       },
@@ -36,11 +36,28 @@ export class Matrix extends BaseMatrix {
     ]).toArray();
   }
 
-  async series(gene) {
+  async series(gene, cells) {
+    let match = {};
     if (gene.length) {
-      return this.Collection.find({ name: { $in: gene } }).toArray();
+      match = { name: { $in: gene } };
     }
-    return this.Collection.find().toArray();
+    return this.Collection.aggregate([
+      { $match: { ...match } },
+      { $limit: 10 },
+      {
+        $project: {
+          series: {
+            $filter: {
+              input: "$series",
+              as: "out",
+              cond: { $in: ["$$out.name", cells] },
+            },
+          },
+          name: 1,
+          _id: 1
+        },
+      },
+    ]).toArray();
   }
 
   findOneById(id) {

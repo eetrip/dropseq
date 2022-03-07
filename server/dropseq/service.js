@@ -23,8 +23,8 @@ export class Service {
     return this.db.Scrna.listSequence({ gene, cell });
   }
 
-  async series(gene) {
-    return this.db.Matrix.series(gene);
+  async series(gene, cells) {
+    return this.db.Matrix.series(gene, cells);
   }
 }
 
