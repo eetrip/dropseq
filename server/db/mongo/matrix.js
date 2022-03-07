@@ -50,10 +50,11 @@ export class Matrix extends BaseMatrix {
             $filter: {
               input: "$series",
               as: "out",
-              cond: { $in: ["$$out.name", cells] },
+              cond: { $in: ["$$out.type", cells] },
             },
           },
           name: 1,
+          type: 1,
           _id: 1
         },
       },
